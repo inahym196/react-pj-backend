@@ -6,6 +6,8 @@ express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
-  .post("/api/v1/tostation",(req,res)=> res.send("今日は,こんにちは"))
+  .post("/api/v1/tostation",(req,res)=> res.json({
+    kanji:"今日は",
+    hira:"こんにちは"
+  }))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
